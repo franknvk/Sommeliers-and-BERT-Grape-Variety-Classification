@@ -1,7 +1,7 @@
 ## **Sommeliers and BERT: Grape Variety Classification**
-### **Captsone Project**
-### **Frank Novak**
-### **DSI 1010**
+## Captsone Project
+### Frank Novak
+### DSI 1010
 ---
 
 ## Repo Folder Organization
