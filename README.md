@@ -1,3 +1,46 @@
+A summary of the problem you tackled.
+A walkthrough of how you set out to solve the problem.
+A demonstration of your solution. (i.e. You may demonstrate an app you developed, an example of how a model may be used, etc.)
+A summary of any models you fit and, if applicable, their performance.
+A brief discussion of limitations to your process. (i.e. data collection issues, missing values)
+A brief discussion of next steps.
+
+
+Problem Statement
+Data Collection
+Data Cleaning & EDA
+Preprocessing & Modeling
+Evaluation and Conceptual Understanding
+Conclusion and Recommendations
+
+
+
+So Bag of words works like this : it builds a vocabulary from a corpus of documents and then counts how many times the words appear in each document. so each word becomes a feature and a document is represented by a vector with the same lenghth of the vocabulary. the Feature matrix shape = Number of documents length of vocabulary.*
+
+As you can image , this approach causes a huge sparse matrix ; a significant dimensionality problem : the more documents you have the larger is the vocabulary. That's why the bag of words model is usually preceded by an important preprocessing (word claning , stop words removals , stemming/lemmatization) aimed to reduce the dimensionnality problem.
+
+Terms frequency is not necessarily the best representation for text. In fact, you can find in the corpus common words with the highest frequency but little predictive power over the target variable. To address this problem there is an advanced variant of the Bag-of-Words that, instead of simple counting, uses the term frequency–inverse document frequency (or Tf–Idf). Basically, the value of a word increases proportionally to count, but it is inversely proportional to the frequency of the word in the corpus.
+
+
+
+
+Word2Vec produces a vector space, typically of several hundred dimensions, with each unique word in the corpus such that words that share common contexts in the corpus are located close to one another in the space. That can be done using 2 different approaches: starting from a single word to predict its context (Skip-gram) or starting from the context to predict a word (Continuous Bag-of-Words).
+
+In the building of this model, we take advantage of word embeddings, applying Word2Vec. This is a technique that was published in 2013 [1] and had a considerable impact in NLP. It consists of describing a word with a vector of a given size (typically 100 or 300). The vector for a given word is defined by its context within texts (i.e. based on words on its left and its right — N words on the left, N words on the right, N being typically 5). Typically, word embeddings is trained on huge text corpuses. Word2Vec was trained on millions of Google News, while a similar technique called GloVe was trained on Wikipedia. Words with similar meanings (synonyms) are typically close to each other in this space of words. The representation is “dense”, compared to the one-hot vector representation, which is “sparse”.
+
+Going one step further, let’s introduce a model where not only each single words are pre-learned, but entire sentences. This is achieved with the BERT language model, which was published in 2019 by Devlin et al [3], at Google. This language model allows the encoding of words depending on their context, by using a huge corpus (Wikipedia and books) for training. Training is done as self-supervised: it is done by masking randomly words from existing sentences. The training of the model consists of completing the missing words. The architecture of BERT consists of multiple layers of transformers. The BERT model has 110m parameters; the large Bert model has 340m parameters. In practice, we will use a smaller model, Distil Bert, which has 66m parameters. Devlin at al. made the implementation of the BERT model open source. But we will use the Python library transformers, which was made available by company HuggingFace (together with many other models).
+
+
+
+leather chocolate bourbon pecan pie
+
+lemon pears slate
+
+pink starbursts and smoke
+
+white pepper and crackers
+
+
 ## **Capstone: Sommeliers and BERT: Grape Variety Classification** ##
 ## **DSI 1010 - Frank Novak**
 ------------------
@@ -10,13 +53,13 @@
 |2_modeling|jupyter notebook|contains jupyter lab notebook modeling and conclusions|
 |README.md|README|README file for capstone|
 |Sommeliers_and_BERT:Grape_Variety_Classification.pdf|pdf|pdf of presentation slides|
-|Pipfile|txt|pipfile used to establish virtual enviroment|
+|Pipfile|txt|pipfile used to establish virtual environment|
 
 ## Data
-- The dataset was scraped from the winemag.com website using Zack Thoutt's scrapewine script to retrive 20,000+ reviewes. [Source](https://github.com/zackthoutt/wine-deep-learning/blob/master/scrape-winemag.py)
+- The dataset was scraped from the winemag.com website using Zack Thoutt's scrapewine script to retrieve 20,000+ reviews. [Source](https://github.com/zackthoutt/wine-deep-learning/blob/master/scrape-winemag.py)
 
 ## Software
-Jupyter Labs was used to house and run our Python notebooks. Google Colab was used to run neural net models due to the abilty for GPU usaged for model fitting. In addition, the following libraries were imported for use:
+Jupyter Labs was used to house and run our Python notebooks. Google Colab was used to run neural net models due to the ability for GPU usage for model fitting. In addition, the following libraries were imported for use:
 * pandas
 * numpy
 * scipy
@@ -48,42 +91,42 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - *Designation*: the vineyard within the winery 
 - *Price*: the cost for a bottle of the wine 
 - *Taster Name*: name of the person who tasted and reviewed the wine
-- *Taster Twitter Handle*: Twitter handle for the person who tasted ane reviewed the wine
+- *Taster Twitter Handle*: Twitter handle for the person who tested and reviewed the wine
 
 ## Executive Summary
 ## Data Scraped
-- Using Zackthoutt's WineEnthusiast Web Scraper, collected all wine reviews for the year 2022 on Janurary 4, 2023. This is done by the 'scrapewinemag' import and calling the Scraper class. I specifed the year and the total range of review pages (1,3047). Completed the scrape over 7 iterations due errors caused by missing entries on the website. These were saved in seperate JSON files and concatenated to create the raw dataframe used for modeling and analysis. A total of 23531 reviews for the 2022.
+- Using Zackthoutt's WineEnthusiast Web Scraper, collected all wine reviews for the year 2022 on January 4, 2023. This is done by the 'scrapewinemag' import and calling the Scraper class. I specified the year and the total range of review pages (1,3047). Completed the scrape over 7 iterations due errors caused by missing entries on the website. These were saved in separate JSON files and concatenated to create the raw data frame used for modeling and analysis. A total of 23531 reviews for the 2022.
 
 ![winemag.com example](images/winemag.png)
 ## Data Cleaned
-- Data was read in from the combined JSON files from the previous step. Twitter handles and taster photos were removed because of irrelevance. Basic descriptive statistics are reviewed for outliers and total unique values for each category. There is a significant outlier in the price column and will be addressed for more accurate EDA. Duplicates wine title are dropped. 
-- The review are full of \n characters and unwanted punctuation for modeling. To prepare the data for further EDA and modeling, the words need to be standardized,contractions removed, cleaned up, tokenized, and lemmatize. This small function below will use NLTK and contractionfunctions to prepare the
+- Data was read in from the combined JSON files from the previous step. Twitter handles and taster photos were removed because of irrelevance. Basic descriptive statistics are reviewed for outliers and total unique values for each category. There is a significant outlier in the price column and will be addressed for more accurate EDA. Duplicate wine titles are dropped. 
+- The reviews are full of \n characters and unwanted punctuation for modeling. To prepare the data for further EDA and modeling, the words need to be standardized,contractions removed, cleaned up, tokenized, and lemmatized. This small function below will use NLTK and contraction functions to prepare the
 ## Data Explored
-- The majority of the wine data was not relavent to the problem at hand. There were interesting results in opening my eyes to new grape varieties and regions like  Hungary
+- The majority of the wine data was not relevant to the problem at hand. There were interesting results in opening my eyes to new grape varieties and regions like  Hungary
 ![boxplot of top reviewed countries](images/box_country.png)
 ![boxplot of top reviewed countries](images/price_plot.png)
 ## Text Explored
-- Since modeling was based on classifacation through text, there needed to be significant information to seperate grape varieties. TFID and Word2Vec were used to see these characteristics. 
-![tfid wine varity words](images/pinot_tdif.png)
+- Since modeling was based on classification through text, there needed to be significant information to separate grape varieties. TFID and Word2Vec were used to see these characteristics. 
+![tfid wine variety words](images/pinot_tdif.png)
 ## Modeling
-- For modeling, I will only be using the sommelier's reviews to predict wine variety. Seen in the wine description EDA, TDIF vocabularies and Word2Vec word similarities show significant information and are capable of being a predictive feature for modeling variety. Because of the large range of varieties, I will simplify the target variables based on specific grape varieties, excluding blends, and only chosing varieties that have atleast 700 samples.
+- For modeling, I will only be using the sommelier's reviews to predict wine variety. Seen in the wine description EDA, TDIF vocabularies and Word2Vec word similarities show significant information and are capable of being a predictive feature for modeling variety. Because of the large range of varieties, I will simplify the target variables based on specific grape varieties, excluding blends, and only choosing varieties that have at least 700 samples.
 #### Naive Bayes 
-* The basic model will be Multinomial Naive Bayes. This model uses Bayes Theorm of Probability which calculates the probability of an event occurring based on the prior knowledge of conditions. This modeling type is typically used for NLP classification due for simple, fast, and efficient computing power. This will be compared to Neural Nets to show if a larger pre-trained model will improve classification accuracy.
-* The Term Frequency Inverse Document Frequency (TFID) vectorizer to transform text into a vector that can actually be interpretted by the model. The text is counted, indexed, and based on the frequency and inverse document frequency of the word over the entire range of documents, is converted to a vector. All stop words are removed since these tend to not relate to the important context of each document.
+* The basic model will be Multinomial Naive Bayes. This model uses Bayes Theorem of Probability which calculates the probability of an event occurring based on the prior knowledge of conditions. This modeling type is typically used for NLP classification due for simple, fast, and efficient computing power. This will be compared to Neural Nets to show if a larger pre-trained model will improve classification accuracy.
+* The Term Frequency Inverse Document Frequency (TFID) vectorizer to transform text into a vector that can actually be interpreted by the model. The text is counted, indexed, and based on the frequency and inverse document frequency of the word over the entire range of documents, is converted to a vector. All stop words are removed since these tend to not relate to the important context of each document.
 #### Sequential RNN
 - In this model, text will again be vectorized but instead with Keras.text and a sequential recurrent neural net model. Each description is standardized (lowercased and punctuation removed), split,  recombined as ngrams, indexed, and vectorized. This model is strictly bound by the words within the data corpus. This is limited in the scope and contextual relation. 
 - Once vectorized, the embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. Then the vectors are fed through an LSTM layer, Dense, and Dropout layers. This model under performs to the Naive Bayes due to the limited context of the vocabulary and vector relations. Using the BERT model is intended to help by adding a larger and more complex vocabulary in terms of vocabulary depth, word relationships, and the resulting vectors. 
 #### BERT
-- BERT, Bidirectional Encoder Representations from Transformers, is Google's pretrained transformer model that has a vareitiy of NLP applications. Trained on over 3,300 million words it is better equiped to understand contextial relationships during vectorization. Using raw text as input, BERT's transformer will pre-process and encode through its pre-trained library. This model has been nicely ported in Keras for use as fine-tuned model like classifying wine varieties. 
-- To further increase the performance of the model, an optimizier scheduler was used to decay learning rate of the model over the training time. This is done using the PolynomialDecay and applying through the Adam optimizer. 
+- BERT, Bidirectional Encoder Representations from Transformers, is Google's pretrained transformer model that has a variety of NLP applications. Trained on over 3,300 million words it is better equipped to understand contextual relationships during vectorization. Using raw text as input, BERT's transformer will pre-process and encode through its pre-trained library. This model has been nicely ported in Keras for use as a fine-tuned model like classifying wine varieties. 
+- To further increase the performance of the model, an optimizer scheduler was used to decay the learning rate of the model over the training time. This is done using the PolynomialDecay and applying it through the Adam optimizer. 
 ## App 
 - Screenshots of the app being used (the app could not be deployed due to the large size of the Bert Model)
 ![screenshot](images/app_ss_4.png)
 
 ## Conclusions & Next Steps
-- Overall, the BERT model increased accuracy by almost 10% from the Naive Bayes at a trade off of an exponential increase in computing power and total memory needed to store the model for deployment. This was a great exercise but would definitly improve with more data. Ideally, all 400+ types of grapes could be identified and classifiied based on reviwes but it is beyond the scope and time constraints of the project. 
-- Adding even more data and improved text preprocessing could also help in the classification. Some data leakage occured since names of the grapes were mentioned within the review. Being able to remove this and focus on specific defining characteristics would help improve performance. 
-- Other routes I would like to take: trying out different pre-trained models that may be better suited for this type of dataset, using clustering of grape varieteis instead of specific for classification may produce interesting results. Add additional features like grape color (red, white, orange)would help distinguish varities but also be used for filtering for app usage. 
+- Overall, the BERT model increased accuracy by almost 10% from the Naive Bayes at a trade off of an exponential increase in computing power and total memory needed to store the model for deployment. This was a great exercise but would definitely improve with more data. Ideally, all 400+ types of grapes could be identified and classified based on reviews but it is beyond the scope and time constraints of the project. 
+- Adding even more data and improved text preprocessing could also help in the classification. Some data leakage occurred since names of the grapes were mentioned within the review. Being able to remove this and focus on specific defining characteristics would help improve performance. 
+- Other routes I would like to take: trying out different pre-trained models that may be better suited for this type of dataset, using clustering of grape varieties instead of specific for classification may produce interesting results. Add additional features like grape color (red, white, orange)would help distinguish varieties but also be used for filtering for app usage. 
 
 ## Sources
 - Wine Data [Source](https://www.winemag.com/)
@@ -91,3 +134,5 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - Word2Vec Understanding [Source](https://jalammar.github.io/illustrated-word2vec/)
 - Bert Understanding [Source](https://jalammar.github.io/illustrated-bert/)
 - NLP Understanding [Source](https://towardsdatascience.com/text-classification-with-nlp-tf-idf-vs-word2vec-vs-bert-41ff868d1794)
+
+
