@@ -55,16 +55,16 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - *Taster Twitter Handle*: Twitter handle for the person who tasted ane reviewed the wine
 
 ## Executive Summary
-* Data Scraped
+## Data Scraped
 - Using Zackthoutt's WineEnthusiast Web Scraper, collected all wine reviews for the year 2022 on Janurary 4, 2023. This is done by the 'scrapewinemag' import and calling the Scraper class. I specifed the year and the total range of review pages (1,3047). Completed the scrape over 7 iterations due errors caused by missing entries on the website. These were saved in seperate JSON files and concatenated to create the raw dataframe used for modeling and analysis. A total of 23531 reviews for the 2022.
-* Data Cleaned
+## Data Cleaned
 - Data was read in from the combined JSON files from the previous step. Twitter handles and taster photos were removed because of irrelevance. Basic descriptive statistics are reviewed for outliers and total unique values for each category. There is a significant outlier in the price column and will be addressed for more accurate EDA. Duplicates wine title are dropped. 
 - The review are full of \n characters and unwanted punctuation for modeling. To prepare the data for further EDA and modeling, the words need to be standardized,contractions removed, cleaned up, tokenized, and lemmatize. This small function below will use NLTK and contractionfunctions to prepare the
-* Data Explored
+## Data Explored
 - The majority of the wine data was not relavent to the problem at hand. There were interesting results in opening my eyes to new grape varieties and regions like  Hungary
-* Text Explored
+## Text Explored
 - Since modeling was based on classifacation through text, there needed to be significant information to seperate grape varieties. TFID and Word2Vec were used to see these characteristics. 
-* Modeling
+## Modeling
 * Naive Bayes
 - For modeling, I will only be using the sommelier's reviews to predict wine variety. Seen in the wine description EDA, TDIF vocabularies and Word2Vec word similarities show significant information and are capable of being a predictive feature for modeling variety. Because of the large range of varieties, I will simplify the target variables based on specific grape varieties, excluding blends, and only chosing varieties that have atleast 700 samples. 
 * The basic model will be Multinomial Naive Bayes. This model uses Bayes Theorm of Probability which calculates the probability of an event occurring based on the prior knowledge of conditions. This modeling type is typically used for NLP classification due for simple, fast, and efficient computing power. This will be compared to Neural Nets to show if a larger pre-trained model will improve classification accuracy.
