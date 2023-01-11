@@ -17,6 +17,8 @@
 
 ## Software
 Jupyter Labs was used to house and run our Python notebooks. Google Colab was used to run neural net models due to the ability for GPU usage for model fitting. In addition, the following libraries were imported for use:
+* BeautifulSoup
+* json
 * pandas
 * numpy
 * scipy
