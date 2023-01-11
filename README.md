@@ -1,7 +1,5 @@
-## **Sommeliers and BERT: Grape Variety Classification** ##
-Captsone Project
-Frank Novak
-DSI 1010
+## **Capstone: Sommeliers and BERT: Grape Variety Classification** ##
+## **DSI 1010 - Frank Novak**
 ---
 
 ## Repo Folder Organization
