@@ -65,14 +65,14 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 ## Text Explored
 - Since modeling was based on classifacation through text, there needed to be significant information to seperate grape varieties. TFID and Word2Vec were used to see these characteristics. 
 ## Modeling
-* Naive Bayes
+#### Naive Bayes
 - For modeling, I will only be using the sommelier's reviews to predict wine variety. Seen in the wine description EDA, TDIF vocabularies and Word2Vec word similarities show significant information and are capable of being a predictive feature for modeling variety. Because of the large range of varieties, I will simplify the target variables based on specific grape varieties, excluding blends, and only chosing varieties that have atleast 700 samples. 
 * The basic model will be Multinomial Naive Bayes. This model uses Bayes Theorm of Probability which calculates the probability of an event occurring based on the prior knowledge of conditions. This modeling type is typically used for NLP classification due for simple, fast, and efficient computing power. This will be compared to Neural Nets to show if a larger pre-trained model will improve classification accuracy.
 * The Term Frequency Inverse Document Frequency (TFID) vectorizer to transform text into a vector that can actually be interpretted by the model. The text is counted, indexed, and based on the frequency and inverse document frequency of the word over the entire range of documents, is converted to a vector. All stop words are removed since these tend to not relate to the important context of each document.
-* Sequential RNN
+#### Sequential RNN
 - In this model, text will again be vectorized but instead with Keras.text and a sequential recurrent neural net model. Each description is standardized (lowercased and punctuation removed), split,  recombined as ngrams, indexed, and vectorized. This model is strictly bound by the words within the data corpus. This is limited in the scope and contextual relation. 
 - Once vectorized, the embedding layer takes the integer-encoded vocabulary and looks up the embedding vector for each word-index. These vectors are learned as the model trains. Then the vectors are fed through an LSTM layer, Dense, and Dropout layers. This model under performs to the Naive Bayes due to the limited context of the vocabulary and vector relations. Using the BERT model is intended to help by adding a larger and more complex vocabulary in terms of vocabulary depth, word relationships, and the resulting vectors. 
-* BERT
+#### BERT
 - BERT, Bidirectional Encoder Representations from Transformers, is Google's pretrained transformer model that has a vareitiy of NLP applications. Trained on over 3,300 million words it is better equiped to understand contextial relationships during vectorization. Using raw text as input, BERT's transformer will pre-process and encode through its pre-trained library. This model has been nicely ported in Keras for use as fine-tuned model like classifying wine varieties. 
 - To further increase the performance of the model, an optimizier scheduler was used to decay learning rate of the model over the training time. This is done using the PolynomialDecay and applying through the Adam optimizer. 
 ## App 
