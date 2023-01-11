@@ -1,4 +1,4 @@
-## **Sommeliers and BERT: Grape Variety Classification**
+## **Sommeliers and BERT: Grape Variety Classification** ##
 Captsone Project
 Frank Novak
 DSI 1010
