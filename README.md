@@ -62,7 +62,7 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - Since modeling was based on classifacation through text, there needed to be significant information to seperate grape varieties. TFID and Word2Vec were used to see these characteristics. 
 ## Modeling
 - For modeling, I will only be using the sommelier's reviews to predict wine variety. Seen in the wine description EDA, TDIF vocabularies and Word2Vec word similarities show significant information and are capable of being a predictive feature for modeling variety. Because of the large range of varieties, I will simplify the target variables based on specific grape varieties, excluding blends, and only chosing varieties that have atleast 700 samples.
-- #### Naive Bayes 
+#### Naive Bayes 
 * The basic model will be Multinomial Naive Bayes. This model uses Bayes Theorm of Probability which calculates the probability of an event occurring based on the prior knowledge of conditions. This modeling type is typically used for NLP classification due for simple, fast, and efficient computing power. This will be compared to Neural Nets to show if a larger pre-trained model will improve classification accuracy.
 * The Term Frequency Inverse Document Frequency (TFID) vectorizer to transform text into a vector that can actually be interpretted by the model. The text is counted, indexed, and based on the frequency and inverse document frequency of the word over the entire range of documents, is converted to a vector. All stop words are removed since these tend to not relate to the important context of each document.
 #### Sequential RNN
