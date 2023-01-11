@@ -5,9 +5,9 @@
 |Folder|Type|Description|
 |---|---|---|
 |data|folder|contains the raw and cleaned datasets used for modeling |
-|00_collection|jupyter notebook|contains jupyter lab notebook with data collection via scrapewine.py|
-|01_preprocessing_EDA|jupyter notebook|contains jupyter lab notebook with preprocessing, EDA and data visualization|
-|03_modeling|jupyter notebook|contains jupyter lab notebook modeling and conclusions|
+|0_collection|jupyter notebook|contains jupyter lab notebook with data collection via scrapewine.py|
+|1_preprocessing_EDA|jupyter notebook|contains jupyter lab notebook with preprocessing, EDA and data visualization|
+|2_modeling|jupyter notebook|contains jupyter lab notebook modeling and conclusions|
 |README.md|README|README file for capstone|
 |Sommeliers_and_BERT:Grape_Variety_Classification.pdf|pdf|pdf of presentation slides|
 |Pipfile|txt|pipfile used to establish virtual enviroment|
