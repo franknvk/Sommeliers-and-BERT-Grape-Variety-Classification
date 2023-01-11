@@ -31,7 +31,7 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 * keras/tensorflow
 
 ## Problem Statement
-- Can Sommelier reviews be used as predictive features for a multiclass classification model to distinguish specific grape varieties as a means to educate those new to wine learn and grow as a wine consumer?
+- Can Sommelier reviews be used as predictive features for a multiclass classification model to distinguish specific grape varieties as a means to educate those new to wine and facilitate growth as a wine consumer?
 
 
 ## Data Dictionary
