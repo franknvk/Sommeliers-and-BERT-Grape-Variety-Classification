@@ -60,8 +60,11 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - The review are full of \n characters and unwanted punctuation for modeling. To prepare the data for further EDA and modeling, the words need to be standardized,contractions removed, cleaned up, tokenized, and lemmatize. This small function below will use NLTK and contractionfunctions to prepare the
 ## Data Explored
 - The majority of the wine data was not relavent to the problem at hand. There were interesting results in opening my eyes to new grape varieties and regions like  Hungary
+![boxplot of top reviewed countries](images/box_country.png)
+![boxplot of top reviewed countries](images/price_plot.png)
 ## Text Explored
 - Since modeling was based on classifacation through text, there needed to be significant information to seperate grape varieties. TFID and Word2Vec were used to see these characteristics. 
+![tfid wine varity words](images/pinot_tdif.png)
 ## Modeling
 - For modeling, I will only be using the sommelier's reviews to predict wine variety. Seen in the wine description EDA, TDIF vocabularies and Word2Vec word similarities show significant information and are capable of being a predictive feature for modeling variety. Because of the large range of varieties, I will simplify the target variables based on specific grape varieties, excluding blends, and only chosing varieties that have atleast 700 samples.
 #### Naive Bayes 
@@ -76,9 +79,6 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 ## App 
 - Screenshots of the app being used (the app could not be deployed due to the large size of the Bert Model)
 ![screenshot](images/app_ss_4.png)
-![screenshot](images/app_ss_3.png)
-![screenshot](images/app_ss_2.png)
-![screenshot](images/app_ss_1.png)
 
 ## Conclusions & Next Steps
 - Overall, the BERT model increased accuracy by almost 10% from the Naive Bayes at a trade off of an exponential increase in computing power and total memory needed to store the model for deployment. This was a great exercise but would definitly improve with more data. Ideally, all 400+ types of grapes could be identified and classifiied based on reviwes but it is beyond the scope and time constraints of the project. 
