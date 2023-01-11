@@ -84,8 +84,8 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - Other routes I would like to take: trying out different pre-trained models that may be better suited for this type of dataset, using clustering of grape varieteis instead of specific for classification may produce interesting results. Add additional features like grape color (red, white, orange)would help distinguish varities but also be used for filtering for app usage. 
 
 ## Sources
-Wine Data[Source](https://www.winemag.com/)
-Text Scraper[Source](https://github.com/zackthoutt/wine-deep-learning)
-Word2Vec Understanding[Source](https://jalammar.github.io/illustrated-word2vec/)
-Bert Understanding[Source](https://jalammar.github.io/illustrated-bert/)
-NLP Understanding [Source](https://towardsdatascience.com/text-classification-with-nlp-tf-idf-vs-word2vec-vs-bert-41ff868d1794)
+- Wine Data[Source](https://www.winemag.com/)
+- Text Scraper[Source](https://github.com/zackthoutt/wine-deep-learning)
+- Word2Vec Understanding[Source](https://jalammar.github.io/illustrated-word2vec/)
+- Bert Understanding[Source](https://jalammar.github.io/illustrated-bert/)
+- NLP Understanding [Source](https://towardsdatascience.com/text-classification-with-nlp-tf-idf-vs-word2vec-vs-bert-41ff868d1794)
