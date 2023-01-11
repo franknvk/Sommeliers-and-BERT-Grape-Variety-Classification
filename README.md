@@ -1,7 +1,6 @@
 ## **Capstone: Sommeliers and BERT: Grape Variety Classification** ##
 ## **DSI 1010 - Frank Novak**
----
-
+------------------
 ## Repo Folder Organization
 |Folder|Type|Description|
 |---|---|---|
@@ -17,7 +16,6 @@
 
 ## Data
 - The dataset was scraped from the winemag.com website using Zack Thoutt's scrapewine script to retrive 20,000+ reviewes. [Source](https://github.com/zackthoutt/wine-deep-learning/blob/master/scrape-winemag.py)
-- 
 
 ## Software
 Jupyter Labs was used to house and run our Python notebooks. Google Colab was used to run neural net models due to the abilty for GPU usaged for model fitting. In addition, the following libraries were imported for use:
