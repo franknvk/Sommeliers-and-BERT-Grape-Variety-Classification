@@ -75,6 +75,10 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - To further increase the performance of the model, an optimizier scheduler was used to decay learning rate of the model over the training time. This is done using the PolynomialDecay and applying through the Adam optimizer. 
 ## App 
 - Screenshots of the app being used (the app could not be deployed due to the large size of the Bert Model)
+![screenshot](images/app_ss_4.png)
+![screenshot](images/app_ss_3.png)
+![screenshot](images/app_ss_2.png)
+![screenshot](images/app_ss_1.png)
 
 ## Conclusions & Next Steps
 - Overall, the BERT model increased accuracy by almost 10% from the Naive Bayes at a trade off of an exponential increase in computing power and total memory needed to store the model for deployment. This was a great exercise but would definitly improve with more data. Ideally, all 400+ types of grapes could be identified and classifiied based on reviwes but it is beyond the scope and time constraints of the project. 
@@ -82,8 +86,8 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - Other routes I would like to take: trying out different pre-trained models that may be better suited for this type of dataset, using clustering of grape varieteis instead of specific for classification may produce interesting results. Add additional features like grape color (red, white, orange)would help distinguish varities but also be used for filtering for app usage. 
 
 ## Sources
-- Wine Data[Source](https://www.winemag.com/)
-- Text Scraper[Source](https://github.com/zackthoutt/wine-deep-learning)
-- Word2Vec Understanding[Source](https://jalammar.github.io/illustrated-word2vec/)
-- Bert Understanding[Source](https://jalammar.github.io/illustrated-bert/)
+- Wine Data [Source](https://www.winemag.com/)
+- Text Scraper [Source](https://github.com/zackthoutt/wine-deep-learning)
+- Word2Vec Understanding [Source](https://jalammar.github.io/illustrated-word2vec/)
+- Bert Understanding [Source](https://jalammar.github.io/illustrated-bert/)
 - NLP Understanding [Source](https://towardsdatascience.com/text-classification-with-nlp-tf-idf-vs-word2vec-vs-bert-41ff868d1794)
