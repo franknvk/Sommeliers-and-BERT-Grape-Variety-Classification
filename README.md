@@ -5,8 +5,6 @@
 |Folder|Type|Description|
 |---|---|---|
 |data|folder|contains the raw and cleaned datasets used for modeling |
-|pages|folder|different pages needed for streamlit webapp|
-|plots|folder|exported graphs from jupyter lab as png files|
 |00_collection|jupyter notebook|contains jupyter lab notebook with data collection via scrapewine.py|
 |01_preprocessing_EDA|jupyter notebook|contains jupyter lab notebook with preprocessing, EDA and data visualization|
 |03_modeling|jupyter notebook|contains jupyter lab notebook modeling and conclusions|
