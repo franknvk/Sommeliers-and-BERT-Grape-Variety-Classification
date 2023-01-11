@@ -9,7 +9,7 @@
 |01_preprocessing_EDA|jupyter notebook|contains jupyter lab notebook with preprocessing, EDA and data visualization|
 |03_modeling|jupyter notebook|contains jupyter lab notebook modeling and conclusions|
 |README.md|README|README file for capstone|
-|XXX|pdf|pdf of presentation slides|
+|Sommeliers_and_BERT:Grape_Variety_Classification.pdf|pdf|pdf of presentation slides|
 |Pipfile|txt|pipfile used to establish virtual enviroment|
 
 ## Data
