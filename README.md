@@ -12,6 +12,9 @@
 |README.md|README|README file for capstone|
 |Sommeliers_and_BERT:Grape_Variety_Classification.pdf|pdf|pdf of presentation slides|
 |Pipfile|txt|pipfile used to establish virtual environment|
+|scrapewinemag.py|python|scraping script for winemag.com|
+|wine_app.py|python|example streamlit app for model deployment|
+
 
 ## Data
 - The dataset was scraped from the winemag.com website using Zack Thoutt's scrapewine script to retrieve 20,000+ reviews. [Source](https://github.com/zackthoutt/wine-deep-learning/blob/master/scrape-winemag.py)
