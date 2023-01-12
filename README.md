@@ -5,6 +5,7 @@
 |Folder|Type|Description|
 |---|---|---|
 |data|folder|contains the raw and cleaned datasets used for modeling |
+|images|folder|contains the images and examples used in the README |
 |0_collection|jupyter notebook|contains jupyter lab notebook with data collection via scrapewine.py|
 |1_preprocessing_EDA|jupyter notebook|contains jupyter lab notebook with preprocessing, EDA and data visualization|
 |2_modeling|jupyter notebook|contains jupyter lab notebook modeling and conclusions|
