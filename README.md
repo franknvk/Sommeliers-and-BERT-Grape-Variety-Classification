@@ -61,7 +61,7 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 - Data was read in from the combined JSON files from the previous step. Twitter handles and taster photos were removed because of irrelevance. Basic descriptive statistics are reviewed for outliers and total unique values for each category. There is a significant outlier in the price column and will be addressed for more accurate EDA. Duplicate wine titles are dropped. 
 - The reviews are full of \n characters and unwanted punctuation for modeling. To prepare the data for further EDA and modeling, the words need to be standardized,contractions removed, cleaned up, tokenized, and lemmatized. This is soley for TFID vectorization as it needs preprocessed tokens to work correctly. Other models have built processing before vectorization. 
 ## Data Explored
-- The majority of the wine data was not relevant to the problem at hand so EDA completed was to find interesting wines and regions. Some of the highest rated wines under $20 were made in Spain from Tempranillo grapes. Another high scoriing region typically over looked when it comes to wine was found in Hungary. 
+- The majority of the wine data was not relevant to the problem at hand so EDA completed was to find interesting wines and regions. Some of the highest rated wines under $20 were made in Spain from Tempranillo grapes. Another high scoring wine came from a region typically over looked: Hungary. 
 ![boxplot of top reviewed countries](images/box_country.png)
 ![boxplot of top reviewed countries](images/price_plot.png)
 ## Text Explored
