@@ -67,7 +67,8 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 ## Text Explored
 - Since modeling was based on the assumption that the classification is possible through text, there needed to be significant information found within the reviews. TFID vectorizor was used to separate words that were specific to grape varieties. As seen in the graphs, there is plenty of information found that could be used as features within the classifaction model. 
 
-<img src="images/pinot_tdif.png)"  width="300" height="400">
+![boxplot of top reviewed countries](images/pinot_tdif.png=250x250)
+
 
 ## Modeling
 - For modeling, I will only be using the sommelier's reviews to predict wine variety. Seen in the wine description EDA, TDIF vocabularies and Word2Vec word similarities show significant information and are capable of being a predictive feature for modeling variety. Because of the large range of varieties, I will simplify the target variables based on specific grape varieties, excluding blends, and only choosing varieties that have at least 700 samples.
