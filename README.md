@@ -67,7 +67,9 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 ## Text Explored
 - Since modeling was based on the assumption that the classification is possible through text, there needed to be significant information found within the reviews. TFID vectorizor was used to separate words that were specific to grape varieties. As seen in the graphs, there is plenty of information found that could be used as features within the classifaction model. 
 
-![boxplot of top reviewed countries](images/pinot_tdif.png=250x250)
+![boxplot of top reviewed countries](images/pinot_tdif.png)
+<img src="images/pinot_tdif.png"  width="120" height="120">
+
 
 
 ## Modeling
