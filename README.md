@@ -59,14 +59,13 @@ Jupyter Labs was used to house and run our Python notebooks. Google Colab was us
 ![winemag.com example](images/winemag.png)
 ## Data Cleaned
 - Data was read in from the combined JSON files from the previous step. Twitter handles and taster photos were removed because of irrelevance. Basic descriptive statistics are reviewed for outliers and total unique values for each category. There is a significant outlier in the price column and will be addressed for more accurate EDA. Duplicate wine titles are dropped. 
-- The reviews are full of \n characters and unwanted punctuation for modeling. To prepare the data for further EDA and modeling, the words need to be standardized,contractions removed, cleaned up, tokenized, and lemmatized. This small function below will use NLTK and contraction functions to prepare the
+- The reviews are full of \n characters and unwanted punctuation for modeling. To prepare the data for further EDA and modeling, the words need to be standardized,contractions removed, cleaned up, tokenized, and lemmatized. This is soley for TFID vectorization as it needs preprocessed tokens to work correctly. Other models have built processing before vectorization. 
 ## Data Explored
-- The majority of the wine data was not relevant to the problem at hand. There were interesting results in opening my eyes to new grape varieties and regions like  Hungary
+- The majority of the wine data was not relevant to the problem at hand so EDA completed was to find interesting wines and regions. Some of the highest rated wines under $20 were made in Spain from Tempranillo grapes. Another high scoriing region typically over looked when it comes to wine was found in Hungary. 
 ![boxplot of top reviewed countries](images/box_country.png)
 ![boxplot of top reviewed countries](images/price_plot.png)
 ## Text Explored
-- Since modeling was based on classification through text, there needed to be significant information to separate grape varieties. TFID and Word2Vec were used to see these characteristics. 
-![tfid wine variety words](images/pinot_tdif.png)
+- Since modeling was based on the assumption that the classification is possible through text, there needed to be significant information found within the reviews. TFID vectorizor was used to separate words that were specific to grape varieties. As seen in the graphs, there is plenty of information found that could be used as features within the classifaction model. 
 ## Modeling
 - For modeling, I will only be using the sommelier's reviews to predict wine variety. Seen in the wine description EDA, TDIF vocabularies and Word2Vec word similarities show significant information and are capable of being a predictive feature for modeling variety. Because of the large range of varieties, I will simplify the target variables based on specific grape varieties, excluding blends, and only choosing varieties that have at least 700 samples.
 #### Naive Bayes 
